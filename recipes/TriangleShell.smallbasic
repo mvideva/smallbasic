@@ -1,0 +1,30 @@
+'Show the tortoise
+
+'Make the tortoise go as fast as possible
+
+'The current length of a side is 1 pixel
+
+'Do the following 60 times
+
+'    Change the color of the line the tortoise draws to a random color
+
+'    Increase the current length of the side by 4 pixels
+
+'    DrawTriangle (recipe below)
+
+'    Turn the tortoise 1/60th of 360 degrees to the right
+
+'Repeat
+
+
+'------------- Recipe for DrawTriangle
+
+'    Do the following 3 times
+
+'        Move the tortoise the current length of a side
+
+'        Turn the tortoise 1/3rd of 360 degrees
+
+'    Repeat
+
+'------------- End of DrawTriangle recipe

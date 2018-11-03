@@ -1,0 +1,23 @@
+TextWindow.BackgroundColor = "Blue"
+TextWindow.ForegroundColor= "Yello"
+
+TextWindow.Write("Write first number:")
+number1 = TextWindow.Read()
+
+TextWindow.BackgroundColor = "Blue"
+TextWindow.ForegroundColor= "Yello"
+
+TextWindow.Write("Write second number:")
+number2 = TextWindow.Read()
+
+TextWindow.BackgroundColor = "Green"
+TextWindow.ForegroundColor= "White"
+
+sum = number1 + number2
+product = number1 * number2
+
+TextWindow.Writeline ("The sum is " + sum)
+TextWindow.Writeline ("The product is " + product)
+
+TextWindow.BackgroundColor = "Black"
+TextWindow.ForegroundColor= "White"

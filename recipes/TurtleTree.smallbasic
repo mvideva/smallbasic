@@ -1,0 +1,71 @@
+'Make the tortoise go as fast as possible
+
+'Turn the background black
+
+'The current branch is 60 pixels long
+
+'CreateBranchColors (recipe below)
+
+'DrawBranch (recipe below)
+
+
+'------------- Recipe for CreateBranchColors
+
+'    A 10 pixel long branch is lime
+
+'    A 20 pixel long branch is forest green
+
+'    A 30 pixel long branch is dark green
+
+'    A 40 pixel long branch is olive
+
+'    A 50 pixel long branch is sienna
+
+'    A 60 pixel long branch is saddle brown
+
+'------------- End of CreateBranchColors recipe
+
+
+'------------- Recipe for DrawBranch
+
+'    AdjustColor (recipe below)
+
+'    Move the tortoise the length of the current branch
+
+'    DrawLowerBranch (recipe below)
+
+'    AdjustColor (recipe below)
+
+'    Move the tortoise backwards the length of the current branch
+
+'------------- End of DrawBranch recipe
+
+
+'------------- Recipe for AdjustColor
+
+'    Change the current color to the color for the current branch length
+
+'    Change the color of the line the tortoise draws to the current color
+
+'------------- End of AdjustColor recipe
+
+
+'------------- Recipe for DrawLowerBranch
+
+'    Decrease the length of the branch by 10 pixels
+
+'    If the branch is longer than 0 pixels then
+
+'        Turn the tortoise 30 degrees to the right
+
+'        DrawBranch (recipe above)
+
+'        Turn the tortoise back 60 degrees to the left
+
+'        DrawBranch (recipe above)
+
+'        Turn the tortoise 30 degrees to the right
+
+'    Increase the length of the branch by 10 pixels
+
+'------------- End of DrawLowerBranch recipe

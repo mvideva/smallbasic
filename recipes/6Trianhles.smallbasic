@@ -1,0 +1,46 @@
+'************************************************************************************************
+'* Draw 1 triangle
+' * Then Draw 5 more
+' * Each new triangle must have vertices that lie in the middle of the sides of the previous triangle.
+' NOTE: the upper left corner of the GraphicsWindow has coordinates (1,1)
+'************************************************************************************************
+
+'BEGIN on the folowing line:  set x and y of the 1st vertice to be in the upper left corner of the GraphicsWindow
+
+' set x and y of the 2nd vertice to be in the middle of the bottom of the GraphicsWindow
+
+' set x and y of the 3rd vertice to be in the upper right corner of the GraphicsWindow
+
+' Do the folowing 6 times
+  
+  ' Call DrawTriangle recipe
+    
+  ' save the x and y of the 1st vertice. You will use it later to compute x and y of the NEW 3rd vertice
+  
+  ' compute the x and y of the NEW 1st vertice from vertice 1 and 2 using the Midpoint formula (Google it!) 
+  
+  ' compute the x and y of the NEW  2nd vertice from vertice 2 and 3 using the Midpoint formula
+  
+  ' compute the x and y of the NEW  3rd vertice from vertice 3 and  the OLD vertice 1 using the Midpoint formula
+    
+
+'  End of Do  
+' ************************************************************
+
+' Recipie DrawTriangle
+
+  '  Lift Tortoise pen up
+  
+  '  Set Tortoise speed to max
+  
+  ' Move Tortoise to 1st vertice
+  
+  ' Put tortoise pen down
+  
+  '  Move Tortoise to 2st vertice
+ 
+  ' Move Tortoise to 3rd vertice
+  
+  ' Move Tortoise back to 1st vertice
+
+'End of  Recipie DrawTriangle

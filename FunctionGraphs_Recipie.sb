@@ -1,0 +1,68 @@
+
+' BEGIN of DrawAxes subroutine
+Sub DrawAxes
+  ' set the width of the graphics window to 720
+  GraphicsWindow.Width = 720
+  ' set the heigth of the graphics window to 400
+  GraphicsWindow.Height = 400
+  ' X axis: draw line starting 0 px from left border, ending 0 px from right border
+  GraphicsWindow.DrawLine (0, GraphicsWindow.Height/2, GraphicsWindow.Width, GraphicsWindow.Height/2)
+  ' Y axis: draw line starting 10 px from bottom border, ending 10 px from top border
+  GraphicsWindow.DrawLine (GraphicsWindow.Width/2, 0, GraphicsWindow.Width/2, GraphicsWindow.Height)
+' END subroutine DrawAxes 
+EndSub
+
+' BEGIN of DrawArrows subroutine (CHALLENG!! Leave for last)
+
+    ' Draw a filed with red color rectangle at the tip of the X axis
+
+    ' Draw a filed with red color rectangle at the tip of the Y axis
+
+' END of DrawArrows subroutine
+
+
+' BEGIN DrawGraph subroutine
+Sub DrawGraph
+  ' store in centerX variable the X coordinate of the intersecting point of X and Y axis
+  centerX = GraphicsWindow.Width/2
+  ' store in centerY variable the Y coordinate of the intersecting point of X and Y axis
+  centerY = GraphicsWindow.Height/2
+  ' LOOP variable x from 0 to 360
+  For x = -360 To 360
+    ' in variable y, compute y = sin(x) . Make sure you give Radiants (not degrees) to sin() math. function!
+    y = Math.Sin(Math.GetRadians(x))
+    ' set the pixel at (centerX + x, centerY + y) to Red color.
+    GraphicsWindow.SetPixel(centerX + x, centerY + y * -50, "Blue")
+    GraphicsWindow.SetPixel(centerX + x, centerY + y * -100, "Green")
+    GraphicsWindow.SetPixel(centerX + x, centerY + y * 50, "Purple")
+    GraphicsWindow.SetPixel(centerX + x, centerY + y * 100, "Red")
+    ' in variable textLine store the folowing string: "(x, y)"  where x and y are the values of x and y variables computed above
+    textLine = "(" + x + "," + y + ")"
+    ' call subroutinr DrawTextLine
+    DrawTextLine()
+    ' make the program delay for 30 miliseconds
+    Program.Delay(10)
+  ' END LOOP
+  EndFor
+' END of DrawAxes subroutine 
+EndSub
+
+' BEGIN of DrawTextLine subroutine
+Sub DrawTextLine
+    ' set the brush to white color
+    GraphicsWindow.BrushColor = "White"
+    ' fill a rectangle with topleft (10, 10), width = 300 and height = 30 with the brush color
+    GraphicsWindow.FillRectangle (10, 10, 300, 30)
+    ' set the brush to red color
+    GraphicsWindow.BrushColor = "Red"
+    ' draw text from variable textLine at coordinates (10, 10) 
+    GraphicsWindow.DrawText (10, 10, textLine)
+' END of DrawTextLine subroutine
+EndSub
+
+' call DrawAxes subroutine
+DrawAxes()
+' call DrawArrows subroutine (CHALLENG!! Leave for last)
+
+' call DrawGraph subroutine
+DrawGraph()

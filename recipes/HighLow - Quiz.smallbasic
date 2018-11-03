@@ -1,0 +1,34 @@
+Quiz.StartHighLowQuizAt = Question1
+'--------------------Begin Quiz --------------------
+
+Sub Question1
+  'if the Y  position of the tortoise  is 115
+  
+  '    turn the tortoise to the right 63 degrees 
+  
+  
+EndSub  
+
+Sub Question2
+  'if the X position of  tortoise is less than Y  position of  tortoise
+  
+  '    turn the tortoise 54 degrees to the left
+  
+  'otherwise turn the tortoise 22 degrees to the right
+  
+  
+EndSub  
+
+Sub Question3
+  'display the message "elcomeway omehay!"
+  
+  
+EndSub  
+
+Sub Question4
+  'if the Y  position of tortoise is greater than 50
+  
+  '    turn the tortoise 177 degrees to the left
+  
+  
+EndSub  

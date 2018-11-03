@@ -1,0 +1,82 @@
+'Hint: you will need to use Timer, GraphicsWindow, ProgramWindow, 
+'ColorWheel, ShapeMaker, and Shapes.
+
+
+'PrepareBubbleWand (recipe below)
+
+'Make the interval on the timer 100 ms
+
+'Set the timer to call the BubbleMaker (recipe below) at each tick
+
+
+'------------- Recipe for PrepareBubbleWand
+
+'    This program has 15 bubbles
+
+'    The fade factor is 100% / the number of bubbles
+
+'    PrepareColorPalette (recipe below)
+
+'------------- End of PrepareBubbleWand recipe
+
+
+'------------- Recipe for PrepareColorPalette
+
+'    Add alice blue to the color wheel
+
+'    Add blue to the color wheel
+
+'    Add dark blue to the color wheel
+
+'    Add purple to the color wheel
+
+'------------- End of PrepareColorPalette recipe
+
+
+'------------- Recipe for BubbleMaker
+
+'    The number of new bubbles created is zero
+
+'    Do the following for each bubble
+
+'        If the opacity of the current bubble is less than zero, then
+
+'            CreateBubble (recipe below)
+
+'        Otherwise
+
+'            FadeBubble (recipe below)
+
+'    Repeat
+
+'------------- End of BubbleMaker recipe
+
+
+'------------- Recipe for FadeBubble
+
+'    Reduce the opacity of the current bubble by the fade factor
+
+'    Sync the opacity of the current bubble
+
+'------------- End of FadeBubble recipe
+
+
+'------------- Recipe for CreateBubble
+
+'    If no new bubbles have been created, then
+
+'        Remove the current bubble
+
+'        Change the color for the new bubble to be the next color on the color wheel
+
+'        The opacity of the new bubble is 100%
+
+'        The radius of the new bubble is a random number between 10 and 50 pixels
+
+'        Create a new bubble
+
+'        Center the bubble at the location of the mouse in the program window
+
+'        Increment the number of new bubbles created 
+
+'------------- End of CreateBubble recipe

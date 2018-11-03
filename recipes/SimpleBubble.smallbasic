@@ -1,0 +1,33 @@
+'Hint: you will need to use the ProgramWindow & ShapeMaker objects.
+
+'PrepareColorPalette (recipe below)
+
+'Set the CreateBubble recipe (below) to be called when the mouse is clicked
+
+
+'------------- Recipe for PrepareColorPalette
+
+'    Add alice blue to the color wheel
+
+'    Add blue to the color wheel
+
+'    Add dark blue to the color wheel
+
+'    Add purple to the color wheel
+
+'------------- End of PrepareColorPalette recipe
+
+
+'------------- Recipe for CreateBubble
+
+'    Remove the current bubble
+
+'    Change the color for the next circle to the next color from the color wheel
+
+'    Set the radius for the circle to a random number between 10 and 50
+
+'    Create the bubble
+
+'    Move the center of the bubble to the current position of the mouse on the window
+
+'------------- End of CreateBubble recipe

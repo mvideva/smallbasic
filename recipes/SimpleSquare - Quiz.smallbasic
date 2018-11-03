@@ -1,0 +1,22 @@
+Quiz.StartSquareQuizAt = Question1
+
+'--------------------Begin Quiz --------------------
+Sub Question1
+  'Turn the tortoise 1/5 of 360 degrees to the right
+  
+EndSub
+
+Sub Question2
+  'Move the tortoise 110 pixels
+  
+EndSub
+
+Sub Question3
+  'Change the color the tortoise draws to yellow
+  
+EndSub
+
+Sub Question4
+  'Change the width of the line the tortoise draws to 5 pixels
+  
+EndSub

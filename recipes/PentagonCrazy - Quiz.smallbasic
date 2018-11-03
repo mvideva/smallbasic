@@ -1,0 +1,27 @@
+Quiz.StartPentagonQuizAt = Question2
+
+'--------------------Begin Quiz --------------------
+'Question1
+'Create a subroutine called Thread
+'    that moves the tortoise 6 pixels
+
+
+Sub Question2
+  'Do the following 76 times
+  
+  Quiz.Stitch()
+  'Repeat
+  
+EndSub
+
+
+Sub Question3
+  'Add lime to the color wheel
+  
+EndSub
+
+
+Sub Question4
+  'Add red to the color wheel
+  
+EndSub

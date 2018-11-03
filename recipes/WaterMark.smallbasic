@@ -1,0 +1,21 @@
+'Get a picture of sand from Flickr
+
+'Use that picture as your background
+
+'A side is 1 pixel long
+
+'Do the following 200 times
+
+'    Get the color of the pixel the tortoise is currently on
+
+'    Use that color for the line the tortoise draws
+
+'    Increase the length of a side by 1 pixel
+
+'    Move the tortoise the length of a side
+
+'    Turn the tortoise 1/3rd of 360 degress to the right
+
+'    Turn the tortoise 1 more degree
+
+'Repeat

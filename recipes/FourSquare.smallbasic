@@ -1,0 +1,26 @@
+'Show the tortoise
+
+'Make the tortoise move as fast as possible
+
+'Do the following 4 times
+
+'    DrawSquare (recipe below)
+
+'    Turn the tortoise 90 degrees to the right
+
+'Repeat
+
+
+'------------- Recipe for DrawSquare
+
+'    Do the following 4 times
+
+'        Change the color of the line the tortoise draws to a random color
+
+'        Move the tortoise 50 pixels
+
+'        Turn the tortoise 90 degrees to the right
+
+'    Repeat
+
+'------------- End of DrawSquare recipe

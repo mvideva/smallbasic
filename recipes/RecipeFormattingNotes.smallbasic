@@ -1,0 +1,21 @@
+'formatting notes
+'add empty lines after each instruction
+'add two empty lines before starting a recipe
+'add spaces after the apostrophe to indent comments
+'indent subroutines four spaces
+'indent loops four spaces
+'always end loops with 'Repeat
+'start a subroutine recipe like this:
+'------------- Recipe for SomeRecipeName
+'end a subroutine recipe like this:
+'------------- End of SomeRecipeName recipe
+'try for english, not code, e.g. instead of
+'    Set the PenColor to "ReallyBrightRed"
+'use
+'    Change the color of the line the tortoise draws to really bright red
+'corollary:
+'do not capitalize object names in comments
+'do not put scare quotes around color names
+'lower case color names (and do not string them together)
+'start variable names with 'the current x is y'
+'always format program at the end to get rid of whitespace on blank lines

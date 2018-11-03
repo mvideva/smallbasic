@@ -1,0 +1,7 @@
+TextWindow.ForegroundColor = "Blue"
+TextWindow.BackgroundColor = "Yellow"
+
+TextWindow.Write("Write your favorite color:")
+color = TextWindow.Read()
+
+TextWindow.WriteLine("Oh, I think " + color + " is a cool color")

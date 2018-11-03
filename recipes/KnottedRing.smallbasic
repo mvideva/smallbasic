@@ -1,0 +1,49 @@
+'Make the tortoise move as fast as possible
+
+'CreateColorPalette (recipe below)
+
+'Do the following 30 times
+
+'    Change the color of the line the tortoise draws to a random color from the color wheel
+
+'    DrawOctagonWithOverlap (recipe below)
+
+'    Turn the tortoise 1/30th of 360 degrees to the right
+
+'    Turn the tortoise 5 more degrees to the right
+
+'Repeat
+
+
+'------------- Recipe for CreateColorPalette
+
+'    Add hot pink to the color wheel
+
+'    Add red to the color wheel
+
+'    Add fuchsia to the color wheel
+
+'    Add orange red to the color wheel
+
+'    Add deep pink to the color wheel
+
+'    Add medium violet red to the color wheel
+
+'    Add crimson to the color wheel
+
+'    Add tomato to the color wheel
+
+'------------- End of CreateColorPalette recipe
+
+
+'------------- Recipe for DrawOctagonWithOverlap
+
+'    Do the following 8 + 1 times
+
+'        Move the tortoise 110 pixels
+
+'        Turn the tortoise 1/8th of 360 degrees to the right
+
+'    Repeat
+
+'------------- End of DrawOctagonWithOverlap recipe

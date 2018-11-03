@@ -1,0 +1,70 @@
+'Set the ClickMouse recipe (below) to be called when the mouse is clicked
+
+'ClearTheScreen (recipe below)
+
+'PrepareColorPalette (recipe below)
+
+
+'------------- Recipe for ClickMouse
+
+'    Play a chime
+
+'    If the right mouse button is clicked, then
+
+'        ClearTheScreen (recipe below)
+
+'    Otherwise
+
+'        ConnectTheDots (recipe below)
+
+'------------- End of ClickMouse recipe
+
+
+'------------- Recipe for ConnectTheDots
+
+'    AddACircle (reipe below)
+
+'    Move the tortoise to the current position of the mouse
+
+'------------- End of ConnectTheDots recipe
+
+
+'------------- Recipe for AddACircle
+
+'    The width of the circle is 15
+
+'    Change the color for the next shape to the next color from the color wheel
+
+'    Create a circle
+
+'    Change the circle to be 40% opaque
+
+'    Move the center of the circle to the current position of the mouse
+
+'------------- End of AddACircle recipe
+
+
+'------------- Recipe for ClearTheScreen
+
+'    Clear the Program Window
+
+'    Write "Right click to clear" on the screen at position 100, 100
+
+'------------- End of ClearTheScreen recipe
+
+
+'------------- Recipe for PrepareColorPalette
+
+'    Add red to the color wheel
+
+'    Add green to the color wheel
+
+'    Add blue to the color wheel
+
+'    Add purple to the color wheel
+
+'    Add pink to the color wheel
+
+'    Add teal to the color wheel
+
+'------------- End of PrepareColorPalette recipe

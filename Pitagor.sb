@@ -1,0 +1,15 @@
+Start:
+TextWindow.Write ("Please enter X1:")
+x1 = TextWindow.ReadNumber()
+TextWindow.Write ("Please enter Y1:")
+y1 = TextWindow.ReadNumber()
+TextWindow.Write ("Please enter X2:")
+x2 = TextWindow.ReadNumber()
+TextWindow.Write ("Please enter Y2:")
+y2 = TextWindow.ReadNumber()
+d = Math.SquareRoot((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
+TextWindow.WriteLine ("The distance between (" + x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + d)
+TextWindow.Write ("Continue? (Y, n)")
+If TextWindow.Read () <> "n" Then
+  Goto Start
+EndIf

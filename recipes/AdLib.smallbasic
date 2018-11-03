@@ -1,0 +1,9 @@
+' Create a list of words for all of the blanks in the adlib by asking the user   (this will be 10 lines) --# 1.3
+
+' The current adLib is the following --# 1.1
+'"Moonwalking-The greatest true life space story is the one about Astronauts {ing verb} on the moon for the first time. There were {number} Astronauts. We all remember their names: {person in room 1} who was an expert in {noun}, and {person in room 2} who was the ship's {occupation} and conducted a series of really {adjective} experiments with {color} mice and {plural noun}.  It was a great day for America when they landed and said - What do you know? It's really made out of {food}!"
+
+' Merge the current adLib with the current words and store the result as the current story --#1.2
+
+' Show the current story in a message box. --#1.0
+

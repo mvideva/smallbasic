@@ -1,0 +1,46 @@
+Quiz.StartSpiderQuizAt = question1
+
+'variables for the quiz
+length = 1
+number = 1
+'--------------------Begin Quiz --------------------
+Sub Question1
+  ' Do the following the current number of times
+  
+  Quiz.Circle()
+  'Repeat
+  
+EndSub
+
+'Question2
+' Create a subroutine called CircleAround which 
+
+'Does the following 3 times
+
+Quiz.Adjust()
+'     Call Question1
+
+'Repeat
+
+
+'Question3
+'Create a subroutine called Grow which 
+
+'  Changes the current length so it is multiplied by 2.5
+
+
+'Question4
+'Create a subroutine called Shrink  which 
+
+' Decreases the current length by 9 pixels
+
+
+'Question5
+'Create a subroutine called Expand which
+
+'Increases the current number by 12
+
+
+
+
+

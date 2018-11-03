@@ -1,0 +1,50 @@
+
+DrawAxes()
+DrawGraph1()
+
+Sub DrawAxes
+  
+  ' set the width of the graphics window to 720
+  GraphicsWindow.Width = 720
+  ' set the heigth of the graphics window to 400
+  GraphicsWindow.Height = 400
+
+  ' X axis: draw line starting 10 px from left border, ending 10 px from right border
+  GraphicsWindow.DrawLine(0, GraphicsWindow.Height/2, GraphicsWindow.Width, GraphicsWindow.Height/2)
+  
+  ' Y axis: draw line starting 10 px from bottom border, ending 10 px from top border
+  GraphicsWindow.DrawLine(GraphicsWindow.Width/2, GraphicsWindow.Height, GraphicsWindow.Width/2, 0)
+  
+EndSub
+
+Sub DrawGraph1
+  
+  centerX = GraphicsWindow.Width/2
+  centerY = GraphicsWindow.Height/2
+  yCoeficient = 100
+  
+  For x = -360 To 360 Step .5
+    y = Math.sin(Math.GetRadians(x))
+    GraphicsWindow.SetPixel(centerX + x, centerY + y * yCoeficient, "Red")
+    
+    textLine = "(" + x + ", " + y + ")"
+    DrawTextLine() 
+    
+    'Program.Delay(30)
+    
+  EndFor
+  
+EndSub
+
+Sub DrawTextLine
+    ' set the brush to white color
+    GraphicsWindow.BrushColor = "White"
+    ' fill a rectangle with topleft (10, 10), width = 300 and height = 30 with the brush color
+    GraphicsWindow.FillRectangle(10, 10, 300, 30)
+    
+    ' set the brush to red color
+    GraphicsWindow.BrushColor = "Red"
+    ' draw text from variable textLine at coordinates (10, 10) 
+    GraphicsWindow.DrawText(10, 10,  textLine)
+  
+EndSub

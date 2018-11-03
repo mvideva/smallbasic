@@ -1,0 +1,33 @@
+Quiz.StartHouseQuizAt = Question1
+
+'--------------------Begin Quiz --------------------
+
+Sub Question1
+  'The current length is 7
+  
+EndSub  
+
+'Question2
+'Create a subroutine called Medium
+'    that sets the current length to 21
+
+
+'Question3
+'Create a subroutine called Large
+'    that sets the current length to 63
+
+
+'Question4
+'Create a subroutine called MoveTheLength
+'    that moves the Tortoise the current length
+
+
+'Question5
+'Create a subroutine called TurnTheCorner
+'    that turns the Tortoise 1/3 of 360 degrees to the left
+
+
+'Question6
+'Create a subroutine called DrawASide
+'    that calls MoveTheLength and TurnTheCorner
+

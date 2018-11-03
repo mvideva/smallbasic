@@ -1,0 +1,81 @@
+'===============================================================
+' This program demonstrates how to respond to mouse click and keyboard press EVENTS 
+' Try to understand it and PLAY with it MAGDE!
+' Maybe add colors of the shapes: when you press "Y" set the color to Yellow ...
+' Or for "W" draw an eraser (white color filled rectangle that covert all in white ...)
+'===============================================================
+
+' Set the initial value of the variable mouseButtonState
+mouseButtonState = "Up"
+
+' Set the initial state of the variable shapeName
+shapeName = "LINE"
+
+' The folowing 4 lines will tell the GraphicsWindow to NOTIFY us (call the 4 subroutines) EVERY TIME the folowing events happen:
+GraphicsWindow.MouseMove = CallMeWhenMouseIsMoving
+GraphicsWindow.MouseUp = CallMeWhenMouseButtonIsUp
+GraphicsWindow.MouseDown = CallMeWhenMouseButtonIsDown
+GraphicsWindow.KeyDown = CallMeWhenKeyIsDown
+
+' This subroutine is called when the mouse button is released (is UP)
+Sub CallMeWhenMouseButtonIsUp
+  mouseButtonState = "UP"
+EndSub
+
+' This subroutine is called when a mouse button is pressed (is DOWN)
+Sub CallMeWhenMouseButtonIsDown
+  mouseButtonState = "DOWN"
+EndSub
+
+' This subroutine is when a key from the keyboard is pressed (is DOWN)
+Sub CallMeWhenKeyIsDown   
+  
+  ' LastKey property of GraphicsWindows has  the value of the last keyboard key pressed...
+  If GraphicsWindow.LastKey = "L" Then    
+    shapeName = "LINE"
+  ElseIf GraphicsWindow.LastKey = "C" Then
+    shapeName = "CIRCLE"
+  ElseIf GraphicsWindow.LastKey = "Y" Then
+    GraphicsWindow.PenColor = "Yellow"
+  ElseIf GraphicsWindow.LastKey = "B" Then
+    GraphicsWindow.PenColor = "Black"
+  ElseIf GraphicsWindow.LastKey = "E" Then
+    GraphicsWindow.BrushColor = "White"
+    GraphicsWindow.PenColor = "White"
+    shapeName = "RECTANGLE"
+  EndIf 
+  
+EndSub
+
+' This subroutine is called when the mouse is moving
+Sub CallMeWhenMouseIsMoving
+  
+  ' If I am currently pressing the mouse button
+  If mouseButtonState = "DOWN" Then
+    
+    ' See what shape to draw 
+    If shapeName = "LINE" Then 
+      DrawMeALine()
+    elseIf shapeName = "CIRCLE" Then 
+      DrawMeACircle()
+    ElseIf shapeName = "RECTANGLE" Then
+      DrawMeARec()
+    EndIf
+        
+  EndIf  
+  
+EndSub
+
+' Draw a line from the current mouse location starting from down/left 10 pixels and ending to up/right 10 pixels
+Sub DrawMeALine
+  GraphicsWindow.DrawLine(GraphicsWindow.MouseX - 10, GraphicsWindow.MouseY - 10, GraphicsWindow.MouseX + 10, GraphicsWindow.MouseY + 10)  
+EndSub
+
+' Draw a circle at the current mouse location
+Sub DrawMeACircle
+  GraphicsWindow.DrawEllipse(GraphicsWindow.MouseX, GraphicsWindow.MouseY, 10, 10)  
+EndSub
+  
+Sub DrawMeARec
+  GraphicsWindow.FillRectangle (GraphicsWindow.MouseX - 10, GraphicsWindow.MouseY - 10, 20, 20)
+EndSub 

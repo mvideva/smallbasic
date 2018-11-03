@@ -1,0 +1,294 @@
+'===============================================================
+' This program demonstrates how to respond to mouse click and keyboard press EVENTS 
+' Try to understand it and PLAY with it MAGDE!
+' Maybe add colors of the shapes: when you press "Y" set the color to Yellow ...
+' Or for "W" draw an eraser (white color filled rectangle that covert all in white ...) a
+'===============================================================
+
+Initialize()
+EraseAndDrawBoard()
+
+Sub Initialize
+  
+  GraphicsWindow.CanResize  = "false"
+  
+  ' Set the initial value of the variable mouseButtonState
+  mouseButtonState = "Up"
+
+  ' Set the initial value of the variable commandName
+  commandName = "CIRCLE"
+  
+  ' Set the initial value of the penSize  variable
+  penSize = 20
+  
+  ' set the counter 
+  counter = 0
+  
+  ' set the initial colors for drawin (pen) and filling (brush)  
+  GraphicsWindow.PenColor = "black"
+  GraphicsWindow.BrushColor = "black"
+  
+  ' Set the event handlers
+  SetEventHandlers()
+  
+EndSub
+
+Sub SetEventHandlers
+  
+  ' The folowing 4 lines will tell the GraphicsWindow to NOTIFY us (call the 4 subroutines) EVERY TIME the folowing events happen:
+  GraphicsWindow.MouseMove = MouseMove_EventHandler
+  GraphicsWindow.MouseUp = MouseUp_EventHandler
+  GraphicsWindow.MouseDown = MouseDown_EventHandler
+  GraphicsWindow.KeyDown = KeyDown_EventHandler
+  
+EndSub
+
+Sub SetEventHandlers_ToDoNothing
+  
+  ' The folowing 4 lines will tell the GraphicsWindow to NOTIFY us (call the 4 subroutines) EVERY TIME the folowing events happen:
+  GraphicsWindow.MouseMove = DoNothing_EventHandler
+  GraphicsWindow.MouseUp = DoNothing_EventHandler
+  GraphicsWindow.MouseDown = DoNothing_EventHandler
+  GraphicsWindow.KeyDown = DoNothing_EventHandler
+  
+EndSub
+
+Sub DoNothing_EventHandler
+  ' Mouse | Common event handler to do nothing
+EndSub
+
+' This subroutine is called when the mouse button is released (is UP)
+Sub MouseUp_EventHandler
+  mouseButtonState = "UP"
+  
+  If GraphicsWindow.MouseY < colorBarHeigh Then          
+    GraphicsWindow.PenColor = GraphicsWindow.GetPixel(GraphicsWindow.MouseX, GraphicsWindow.MouseY)    
+    GraphicsWindow.BrushColor = GraphicsWindow.PenColor 
+  EndIf
+    
+EndSub
+
+' This subroutine is called when a mouse button is pressed (is DOWN)
+Sub MouseDown_EventHandler
+  
+  mouseButtonState = "DOWN" 
+  
+  If commandName = "FILL" Then
+    Stack.PushValue("ff", GraphicsWindow.MouseX)
+    Stack.PushValue("ff", GraphicsWindow.MouseY)
+    Stack.PushValue("ff", GraphicsWindow.GetPixel(GraphicsWindow.MouseX, GraphicsWindow.MouseY))
+    FloodFill()
+  else
+    DrawTheShape()
+  EndIf
+  
+EndSub
+
+
+' This subroutine is called when the mouse is moving
+Sub MouseMove_EventHandler
+  
+  ' If I am NOT currently pressing the mouse button, do not draw
+  If mouseButtonState = "DOWN" Then
+    DrawTheShape()      
+  EndIf  
+  
+  PrintStatusLine()
+    
+EndSub
+
+' This subroutine is when a key from the keyboard is pressed (is DOWN)
+Sub KeyDown_EventHandler
+  
+  ' LastKey property of GraphicsWindows has  the value of the last keyboard key pressed...
+  If GraphicsWindow.LastKey = "L" Then    
+    commandName = "LINE"
+  ElseIf GraphicsWindow.LastKey = "C" Then
+    commandName = "CIRCLE"
+  ElseIf GraphicsWindow.LastKey = "S" Then
+    commandName = "SQUARE"
+  ElseIf GraphicsWindow.LastKey = "F" Then
+    commandName = "FILL"
+  ElseIf GraphicsWindow.LastKey = "E" Then
+    EraseAndDrawBoard()
+  ElseIf GraphicsWindow.LastKey = "Up" Then
+    penSize = Math.Min(penSize + 1, 50)
+  ElseIf GraphicsWindow.LastKey = "Down" Then
+    penSize = Math.Max(penSize - 1, 1)
+  EndIf 
+    
+  PrintStatusLine()
+        
+EndSub
+
+' This subroutine is called when the mouse is moving
+Sub DrawTheShape
+  
+  ' If not trying to draw over the color bar - draw the shape 
+  If GraphicsWindow.MouseY > colorBarHeigh + penSize / 2 Then    
+    
+    If commandName = "LINE" Then 
+      DrawMeALine()
+    ElseIf commandName = "CIRCLE" Then 
+      DrawMeACircle()
+    ElseIf commandName = "SQARE" Then 
+      DrawMeASquare()
+    EndIf
+    
+  EndIf
+
+EndSub
+
+' Draw a line from the current mouse location starting from down/left 10 pixels and ending to up/right 10 pixels
+Sub DrawMeALine
+  GraphicsWindow.DrawLine(GraphicsWindow.MouseX - penSize/2, GraphicsWindow.MouseY - penSize/2, GraphicsWindow.MouseX + penSize/2, GraphicsWindow.MouseY + penSize/2)  
+EndSub
+
+' Draw a circle at the current mouse location
+Sub DrawMeACircle
+  GraphicsWindow.FillEllipse(GraphicsWindow.MouseX - penSize/2, GraphicsWindow.MouseY - penSize/2, penSize, penSize)  
+EndSub
+
+' Draw a circle at the current mouse location
+Sub DrawMeASquare
+  GraphicsWindow.FillRectangle(GraphicsWindow.MouseX - penSize/2, GraphicsWindow.MouseY - penSize/2, penSize*2, penSize*2)
+EndSub
+
+Sub FloodFill
+  
+    ffOldColor = Stack.PopValue("ff")
+    ffY = Stack.PopValue("ff")
+    ffX = Stack.PopValue("ff")    
+    
+    'textToPrint = "(" + ffX + ", " + ffY + ", " + ffOldColor + ")"
+    'PrintDebugLine()
+    
+    ' assume surface is a 2D image and surface[x][y] is the color at x, y.
+    if GraphicsWindow.GetPixel(ffX, ffY) = ffOldColor Then 
+            
+      GraphicsWindow.SetPixel(ffX, ffY, GraphicsWindow.BrushColor)
+      
+      If ffX < GraphicsWindow.Width Then
+        Stack.PushValue("ff", ffX + 1)
+        Stack.PushValue("ff", ffY)
+        Stack.PushValue("ff", ffOldColor)
+        FloodFill()
+      EndIf
+      
+      If ffX > 0 Then 
+        Stack.PushValue("ff", ffX - 1)
+        Stack.PushValue("ff", ffY)
+        Stack.PushValue("ff", ffOldColor)
+        FloodFill()
+      EndIf
+      
+      If ffY < GraphicsWindow.Height Then
+        Stack.PushValue("ff", ffX)
+        Stack.PushValue("ff", ffY + 1)
+        Stack.PushValue("ff", ffOldColor)
+        FloodFill()
+      EndIf
+      
+      If ffY > colorBarHeigh + penSize / 2 Then
+        Stack.PushValue("ff", ffX)
+        Stack.PushValue("ff", ffY - 1)
+        Stack.PushValue("ff", ffOldColor)
+        FloodFill()
+      EndIf
+      
+    EndIf
+    
+EndSub
+
+Sub EraseAndDrawBoard
+  
+  SetEventHandlers_ToDoNothing()
+  
+  oldColor = GraphicsWindow.PenColor
+  
+  colorsArray[0] = "black"
+  colorsArray[1] = "brown"
+  colorsArray[2] = "red"
+  colorsArray[3] = "blue"
+  colorsArray[4] = "green"
+  colorsArray[5] = "yellow"
+  colorsArray[6] = "pink"
+  colorsArray[7] = "cyan"
+  colorsArray[8] = "magenta"
+  colorsArray[9] = "white"
+  
+  ' Erase the graphics window
+  GraphicsWindow.Clear()
+  
+  ' Compute the dimentions of the color bar
+  colorBarWidth = GraphicsWindow.Width/10
+  colorBarHeigh = GraphicsWindow.Height/10
+ 
+  For i = 0 To 9
+    GraphicsWindow.BrushColor = colorsArray[i]
+    GraphicsWindow.FillRectangle(i * colorBarWidth, 0, colorBarWidth, colorBarHeigh)
+  EndFor
+  
+  ' Draw a rectangle arround the color bar 
+  GraphicsWindow.PenColor = "black"
+  GraphicsWindow.DrawRectangle(0, 0, GraphicsWindow.Width, colorBarHeigh)
+  
+  GraphicsWindow.PenColor = oldColor
+  GraphicsWindow.BrushColor = oldColor
+  
+  SetEventHandlers()
+  
+EndSub
+  
+Sub PrintStatusLine
+  
+  SetEventHandlers_ToDoNothing()
+  
+  oldColor = GraphicsWindow.BrushColor
+  
+  textToPrint = "(" + GraphicsWindow.MouseX + "," + GraphicsWindow.MouseY + ")"
+  textToPrint = textToPrint  + " Pen: " + commandName + ", Size: " + penSize
+  textToPrint = textToPrint  + " Choose: (C)ircle, (L)ine, (S)quare, (E)rase all, (Up/Down)pen size
+  
+  textX = 5
+  textY = GraphicsWindow.Height - 5 - GraphicsWindow.FontSize
+  textWidth = GraphicsWindow.Width
+  textHeight = GraphicsWindow.FontSize    
+  
+  GraphicsWindow.BrushColor = "white"  
+  GraphicsWindow.FillRectangle(textX, textY, textWidth, textHeight + 5)
+  
+  GraphicsWindow.BrushColor = "black"
+  GraphicsWindow.DrawBoundText(textX, textY, textWidth, textToPrint)
+  
+  GraphicsWindow.BrushColor = oldColor
+  
+  SetEventHandlers()
+
+EndSub
+
+
+Sub PrintDebugLine
+  
+  SetEventHandlers_ToDoNothing()
+  
+  oldColor = GraphicsWindow.BrushColor
+  
+  textX = 5
+  textY = GraphicsWindow.Height - 5 - GraphicsWindow.FontSize
+  textWidth = GraphicsWindow.Width
+  textHeight = GraphicsWindow.FontSize    
+  
+  GraphicsWindow.BrushColor = "white"  
+  GraphicsWindow.FillRectangle(textX, textY, textWidth, textHeight + 5)
+  
+  GraphicsWindow.BrushColor = "black"
+  GraphicsWindow.DrawBoundText(textX, textY, textWidth, textToPrint)
+  
+  GraphicsWindow.BrushColor = oldColor
+  
+  Program.Delay(100)
+  
+  SetEventHandlers()
+
+EndSub

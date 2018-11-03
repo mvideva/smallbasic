@@ -1,0 +1,42 @@
+' Make the tortoise move as fast as possible
+
+' Have the tortoise start at 200 pixels in on the X axis
+
+' The current height is 40
+
+' DrawHouse (recipe below)
+
+' The current height is 120
+
+' DrawHouse (recipe below)
+
+' The current height is 90
+
+' DrawHouse (recipe below)
+
+' The current height is 20
+
+' DrawHouse (recipe below)
+
+' ------------- Recipe for DrawHouse
+
+'    Change the color of the line the tortoise draws to LightGray
+
+'    Move the tortoise the height of a house
+
+'    Turn the tortoise 90 degrees to the right
+
+'    Move the tortoise 30 pixels
+
+'    Turn the tortoise 90 degrees to the right
+
+'    Move the tortoise the height of a house
+
+'    Turn the tortoise 90 degrees to the left
+
+'    Move the tortoise 20 pixels
+
+'    Turn the tortoise 90 degrees to the left
+
+' ------------- End of DrawHouse recipe
+

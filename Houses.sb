@@ -1,0 +1,43 @@
+'Make the tortoise move as fast as possible --#10
+Tortoise.SetSpeed(10)
+'Have the tortoise start at 200 pixels in on the X axis --#19
+Tortoise.SetX (200)
+'The current height is 40 --#1.1
+hight = 40
+'DrawHouse (recipe below) --#12
+DrawHouse()
+'The current height is 120 --#16
+hight = 120
+'DrawHouse (recipe below) --#13
+DrawHouse()
+'The current height is 90 --#17
+hight = 90
+'DrawHouse (recipe below) --#14
+DrawHouse()
+'The current height is 20 --#18
+hight = 20
+'DrawHouse (recipe below) --#15
+DrawHouse()
+
+'------------- Recipe for DrawHouse --#11
+Sub DrawHouse
+  ' Change the color of the line the tortoise draws to LightGray --#9
+  Tortoise.SetPenColor ("lightgray")
+  ' Move the tortoise the height of a house --#1.0
+  Tortoise.Move (hight)
+  ' Turn the tortoise 90 degrees to the right --#2
+  Tortoise.Turn(90)
+  ' Move the tortoise 30 pixels --#3
+  Tortoise.Move(30)
+  ' Turn the tortoise 90 degrees to the right --#4
+  Tortoise.Turn(90)
+  ' Move the tortoise the height of a house --#5
+  Tortoise.Move (hight)
+  ' Turn the tortoise 90 degrees to the left --#6
+  Tortoise.Turn(-90)
+  ' Move the tortoise 20 pixels --#7
+  Tortoise.Move(20)
+  ' Turn the tortoise 90 degrees to the left --#8
+  Tortoise.Turn(-90)
+  '------------- End of DrawHouse recipe --#11
+EndSub

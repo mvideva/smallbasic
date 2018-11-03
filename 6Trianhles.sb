@@ -1,0 +1,49 @@
+'************************************************************************************************
+'* Draw 1 triangle
+' * Then Draw 5 more
+' * Each new triangle must have vertices that lie in the middle of the sides of the previous triangle.
+' NOTE: the upper left corner of the GraphicsWindow has coordinates (1,1)
+'************************************************************************************************
+
+x1 = 1
+y1 = 1
+x2 = GraphicsWindow.Width/2 
+y2 = GraphicsWindow.Height
+x3 = GraphicsWindow.Width 
+y3 = 1 
+
+For i = 1 To 6
+  
+  DrawTriangle()
+    
+  old_x1 = x1
+  old_y1 = y1
+  
+  x1 = (x1 + x2) / 2
+  y1 = (y1 + y2) / 2
+  
+  x2 = (x2 + x3) / 2
+  y2 = (y2 + y3) / 2
+  
+  x3 = (x3 + old_x1) / 2
+  y3 = (y3 + old_y1) / 2
+
+EndFor 
+' ************************************************************
+
+Sub DrawTriangle
+  Tortoise.PenUp()
+  
+  Tortoise.SetSpeed(10)
+  
+  Tortoise.Moveto(x1,y1)
+  
+  Tortoise.PenDown()
+  
+  Tortoise.Moveto(x2,y2)
+  
+  Tortoise.Moveto(x3,y3)
+  
+  Tortoise.Moveto(x1,y1)
+
+EndSub
